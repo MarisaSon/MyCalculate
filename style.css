@@ -1,0 +1,93 @@
+body {
+  background-color: #000000;
+}
+
+:root {
+  --grey-bg: #d2d3da;
+  --blue-bg: #4b5efc;
+  --white-bg: #ffffff;
+  --light-white: #f1f2f3;
+  --light-grey: #bcbcbd;
+  --dark-grey: #919192;
+  --black: #000000;
+}
+
+.calc {
+  width: 375px;
+  height: 812px;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 50px auto;
+  background-color: var(--light-white);
+}
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.buttons__btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  border: none;
+  justify-items: center;
+  margin: 8px;
+  color: var(--black);
+  background-color: var(--white-bg);
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.buttons__btn_bg-grey {
+  background-color: var(--grey-bg);
+}
+
+.buttons__btn_bg-blue {
+  background-color: var(--blue-bg);
+  color: var(--white-bg);
+}
+
+.main-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.icons {
+  width: 72px;
+  height: 32px;
+  padding: 1, 5px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.calc-display__text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.calc-display__text {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: var(--dark-grey);
+  margin: 0;
+  margin-top: 32px;
+  margin-right: 12px;
+}
+.calc-display__text_bold {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 96px;
+  color: var(--black);
+  margin: 0;
+  margin-top: 10px;
+  margin-right: 12px;
+}
+
+
+
