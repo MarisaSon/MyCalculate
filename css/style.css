@@ -13,7 +13,7 @@ body {
 }
 
 .calc {
-  width: 375px;
+  width: 350px;
   height: 812px;
   border: 1px solid black;
   padding: 5px;
@@ -21,18 +21,26 @@ body {
   background-color: var(--light-white);
 }
 .buttons {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  /* gap: 0; */
+  grid-template-areas:
+    "del plus-minus percent division"
+    "seven eigth nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "dot zero clear equal";
 }
 
 .buttons__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 72px;
   height: 72px;
   border-radius: 24px;
   border: none;
-  justify-items: center;
   margin: 8px;
+  padding: 0px;
   color: var(--black);
   background-color: var(--white-bg);
   font-family: "Work Sans", sans-serif;
@@ -44,17 +52,18 @@ body {
   background-color: var(--grey-bg);
 }
 
-.buttons__btn_bg-blue {
+.buttons__btn_bg-blue,
+.division {
   background-color: var(--blue-bg);
   color: var(--white-bg);
 }
 
-.main-icon {
+.calc-display__icon {
   display: flex;
   justify-content: center;
 }
 
-.icons {
+.calc-display__box-icons {
   width: 72px;
   height: 32px;
   padding: 1, 5px;
@@ -65,12 +74,14 @@ body {
   align-items: center;
 }
 
-.calc-display__text {
-  display: flex;
-  justify-content: flex-end;
+.calc-display__style-icons {
+  width: 24px;
+  height: 24px;
 }
 
 .calc-display__text {
+  display: flex;
+  justify-content: flex-end;
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
   font-size: 40px;
@@ -79,15 +90,14 @@ body {
   margin-top: 32px;
   margin-right: 12px;
 }
+
 .calc-display__text_bold {
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
   font-size: 96px;
+  -webkit-text-stroke: 2px #000000;
   color: var(--black);
   margin: 0;
   margin-top: 10px;
-  margin-right: 12px;
+  margin-right: 7px;
 }
-
-
-
