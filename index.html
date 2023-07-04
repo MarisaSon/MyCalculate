@@ -13,16 +13,14 @@
     />
   </head>
   <body>
-    <div class="calc">
-      <div class="calc-display">
-        <div class="calc-display__icon">
-          <div class="calc-display__box-icons">
-            <img class="calc-display__style-icons" src="/icon/sun.svg" />
-            <img class="calc-display__style-icons" src="/icon/moon_light.svg" />
-          </div>
-        </div>
-        <p class="calc-display__text">6,291÷5</p>
-        <p class="calc-display__text calc-display__text_bold">1,258.2</p>
+    <div class="container">
+      <label class="toggle">
+        <input class="toggle__checkbox" type="checkbox" />
+        <div class="toggle__switch"></div>
+      </label>
+      <div class="display">
+        <p class="display__text display__text_input">6,291÷5</p>
+        <p class="display__text display__text_result">1,258.2</p>
       </div>
       <div class="buttons">
         <button class="buttons__btn buttons__btn_bg-grey del">C</button>
