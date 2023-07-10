@@ -7,4 +7,5 @@
     border: 1px solid white;
     padding: 16px;
     background-color: var(--light-white);
+    overflow: hidden;
   }
