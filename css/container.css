@@ -5,7 +5,6 @@
     min-width: 350px;
     min-height: 95vh;
     border: 1px solid white;
-    padding: 16px;
+     padding: 16px; 
     background-color: var(--light-white);
-    overflow: hidden;
   }

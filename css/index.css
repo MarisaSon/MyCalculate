@@ -1,7 +1,6 @@
 body {
   margin: 0;
   background-color: var(--light-white);
-  overflow: hidden;
 }
 
 :root {
@@ -12,4 +11,14 @@ body {
   --light-grey: #bcbcbd;
   --dark-grey: #919192;
   --black: #000000;
+}
+
+@media all and (max-width: 500px) {
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+  .keybord {
+    margin-bottom: 35px;
+  }
 }
