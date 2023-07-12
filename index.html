@@ -1,58 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculate</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/container.css" />
+    <link rel="stylesheet" href="/css/toggle.css" />
+    <link rel="stylesheet" href="/css/display.css" />
+    <link rel="stylesheet" href="/css/button.css" />
+    <link rel="stylesheet" href="/css/font.css" />
   </head>
   <body>
-    <div class="calc">
-      <div class="calc-display">
-        <div class="calc-display__icon">
-          <div class="calc-display__box-icons">
-            <img class="calc-display__style-icons" src="/icon/sun.svg" />
-            <img class="calc-display__style-icons" src="/icon/moon_light.svg" />
-          </div>
-        </div>
-        <p class="calc-display__text">6,291÷5</p>
-        <p class="calc-display__text calc-display__text_bold">1,258.2</p>
+    <div class="container">
+      <div class="toggle-wrapper">
+        <label class="toggle">
+          <input class="toggle__checkbox" type="checkbox" />
+          <div class="toggle__switch"></div>
+        </label>
       </div>
-      <div class="buttons">
-        <button class="buttons__btn buttons__btn_bg-grey del">C</button>
-        <button class="buttons__btn buttons__btn_bg-grey plus-minus">
-          <img class="buttons__icon" src="/icon/plus_minus.svg" alt="icon" />
+      <div class="display-wrapper">
+        <div class="display">
+          <p class="display__text display__text_input">6,291÷5</p>
+          <p class="display__text display__text_result">1,258.2</p>
+        </div>
+      </div>
+      <div class="keybord">
+        <button class="button button_bg-grey">C</button>
+        <button class="button button_bg-grey">
+          <img class="button__icon" src="/icon/plus_minus.svg" alt="icon" />
         </button>
-        <button class="buttons__btn buttons__btn_bg-grey percent">%</button>
-        <button class="buttons__btn buttons__btn_bg-grey division">÷</button>
+        <button class="button button_bg-grey">%</button>
+        <button class="button button_bg-blue">÷</button>
 
-        <button class="buttons__btn seven">7</button>
-        <button class="buttons__btn eigth">8</button>
-        <button class="buttons__btn nine">9</button>
-        <button class="buttons__btn buttons__btn_bg-blue multiply">x</button>
+        <button class="button">7</button>
+        <button class="button">8</button>
+        <button class="button">9</button>
+        <button class="button button_bg-blue">x</button>
 
-        <button class="buttons__btn four">4</button>
-        <button class="buttons__btn five">5</button>
-        <button class="buttons__btn six">6</button>
-        <button class="buttons__btn buttons__btn_bg-blue minus">-</button>
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button button_bg-blue">-</button>
 
-        <button class="buttons__btn one">1</button>
-        <button class="buttons__btn two">2</button>
-        <button class="buttons__btn three">3</button>
-        <button class="buttons__btn buttons__btn_bg-blue plus">+</button>
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button button_bg-blue">+</button>
 
-        <button class="buttons__btn dot">.</button>
-        <button class="buttons__btn zero">0</button>
-        <button class="buttons__btn clear">
-          <img class="buttons__icon" src="/icon/delete.svg" alt="icon" />
+        <button class="button">.</button>
+        <button class="button">0</button>
+        <button class="button">
+          <img class="button__icon" src="/icon/delete.svg" alt="icon" />
         </button>
-        <button class="buttons__btn buttons__btn_bg-blue equal">=</button>
+        <button class="button button_bg-blue">=</button>
       </div>
     </div>
   </body>

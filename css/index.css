@@ -1,0 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --grey-bg: #d2d3da;
+  --blue-bg: #4b5efc;
+  --white-bg: #ffffff;
+  --light-white: #f1f2f3;
+  --light-grey: #bcbcbd;
+  --dark-grey: #919192;
+  --black: #000000;
+}

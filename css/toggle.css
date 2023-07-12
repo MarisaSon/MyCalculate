@@ -1,0 +1,57 @@
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  padding-top: 5px;
+  left: 0;
+  width: 100%;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+  display: grid;
+  justify-items: center;
+}
+
+.toggle__switch {
+  display: inline-block;
+  border-radius: 20px;
+  width: 72px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.35s;
+  background: url("/icon/sun.svg") no-repeat left/30%, white;
+  background-position: top 6px left 8px;
+}
+.toggle__switch:before,
+.toggle__switch:after {
+  content: "";
+}
+.toggle__switch:before {
+  display: block;
+  background-color: var(--grey-bg);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  transition: left 0.25s;
+}
+
+.toggle__checkbox:checked + .toggle__switch {
+  background: url("/icon/moon.svg") no-repeat right/30%, #2e2f38;
+  background-position: top 6px right 8px;
+}
+
+.toggle__checkbox:checked + .toggle__switch:before {
+  right: 42px;
+  background-color: #4e505f;
+}
+
+.toggle__checkbox {
+  position: absolute;
+  visibility: hidden;
+}
