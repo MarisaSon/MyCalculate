@@ -1,5 +1,11 @@
+.display-wrapper {
+  align-self: flex-end;
+  height: 100%;
+  display: grid;
+}
 .display {
-  margin-top: auto;
+  align-self: flex-end;
+  padding-top: 40px;
 }
 
 .display__text {
@@ -10,8 +16,8 @@
   font-size: 40px;
   color: var(--dark-grey);
   margin: 0;
-  margin-top: 32px;
-  margin-right: 12px;
+  padding-top: 32px;
+  padding-right: 12px;
 }
 
 .display__text_result {
@@ -21,6 +27,6 @@
   -webkit-text-stroke: 2px #000000;
   color: var(--black);
   margin: 0;
-  margin-top: 10px;
-  margin-right: 7px;
+  padding-top: 10px;
+  padding-right: 7px;
 }

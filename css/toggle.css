@@ -1,6 +1,10 @@
-.wrapper {
+.toggle-wrapper {
   display: flex;
   justify-content: center;
+  position: fixed;
+  padding-top: 5px;
+  left: 0;
+  width: 100%;
 }
 
 .toggle {
@@ -8,14 +12,11 @@
   display: inline-block;
   display: grid;
   justify-items: center;
-  position: fixed;
-  top: 5px;
 }
 
 .toggle__switch {
   display: inline-block;
   border-radius: 20px;
-  /* padding: 3px; */
   width: 72px;
   height: 32px;
   position: relative;
