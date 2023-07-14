@@ -11,4 +11,15 @@ body {
   --light-grey: #bcbcbd;
   --dark-grey: #919192;
   --black: #000000;
+  --operator-color: #ffffff;
+  --solid: 2px;
+  --svg-color: currentColor;
+}
+
+[dark] {
+  --light-white: #17171c;
+  --black: #ffffff;
+  --white-bg: #2e2f38;
+  --grey-bg: #4e505f;
+  --solid: 0px;
 }
