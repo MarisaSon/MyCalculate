@@ -32,6 +32,6 @@
   color: var(--operator-color);
 }
 
-path {
+.button__icon path {
   fill: var(--svg-color);
 }
