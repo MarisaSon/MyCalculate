@@ -7,6 +7,10 @@ let display = "";
 let keybord = document.querySelector(".keybord");
 keybord.addEventListener("click", buttonClick);
 
+/**
+ * Обрабатывает событие по нажатию кнопки
+ */
+
 function buttonClick(e) {
   let action = e.target.dataset.action;
 
@@ -60,11 +64,15 @@ function buttonClick(e) {
       break;
 
     case "division":
-      addOperator("/");
+      addOperator("÷");
       break;
 
     case "multipli":
-      addOperator("*");
+      addOperator("x");
+      break;
+
+    case "plus_minus":
+      addPlusMinus();
       break;
 
     case "clear":
@@ -92,27 +100,49 @@ function buttonClick(e) {
   }
   showDisplay();
 }
-
+/**
+ * Отобразить данные на дисплей
+ */
 function showDisplay() {
   displayState.innerText = display;
+  if (display.length >= 10) {
+    displayState.style.fontSize = "3.7rem";
+  }
 }
+
+/**
+ * Очистить весь дисплей
+ */
 
 function clearAll() {
   display = "";
 }
 
+/**
+ * Удалить последний элемент на дисплее
+ */
+
 function deleteElement() {
   display = display.substring(0, display.length - 1);
-  console.log(deleteElement);
 }
+
+/**
+ * Проверка является ли значение оператором
+ */
 
 function isOperator(value) {
-  return value === "-" || value === "+" || value === "/" || value === "*";
+  return value === "-" || value === "+" || value === "÷" || value === "x";
 }
-
+/**
+ * Добавить оператор на дисплей
+ */
 function addOperator(value) {
   const lastElement = display[display.length - 1];
   const isLastElementOperator = isOperator(lastElement);
+
+  if (display === "") {
+    return;
+  }
 
   if (lastElement === ".") {
     display = display.slice(0, -1);
@@ -120,7 +150,6 @@ function addOperator(value) {
 
   if (isLastElementOperator) {
     const newdisplayState = display.slice(0, -1) + "";
-    console.log(newdisplayState);
     display = newdisplayState + " " + value;
     return;
   } else {
@@ -128,6 +157,9 @@ function addOperator(value) {
   }
 }
 
+/**
+ * Добавить цифру на дисплей
+ */
 function addNumber(value) {
   const lastElement = display[display.length - 1];
   const isLastElementOperator = isOperator(lastElement);
@@ -143,22 +175,68 @@ function addNumber(value) {
     display = display + value;
   }
 }
-
+/**
+ * Добавить точку на дисплей
+ */
 function addDot() {
   const lastElement = display[display.length - 1];
   const isLastElementOperator = isOperator(lastElement);
+  const displaySplited = display.split(" ");
+  const lastNumber = displaySplited.pop();
+  const isDotExists = lastNumber.includes(".");
+  console.log(isDotExists);
+  if (isDotExists) {
+    return;
+  }
   if (isLastElementOperator || lastElement === "." || display === "") {
     return;
-  } else {
-    display = display + ".";
   }
+
+  display = display + ".";
 }
+
+/**
+ *  Смена знака оператора на дисплее
+ */
+
+function addPlusMinus() {
+  const displaySplited = display.split(" ");
+
+  const lastNumber = displaySplited.pop();
+
+  if (display === "") {
+    return;
+  }
+
+  if (isOperator(lastNumber)) {
+    return;
+  }
+
+  const changedLastNumber = "-(" + lastNumber + ")";
+  displaySplited.push(changedLastNumber);
+  const displayJoin = displaySplited.join(" ");
+  display = displayJoin;
+}
+
+/**
+ * Добавить проценты на дисплей
+ */
 
 function addPercent() {
-  display = eval(display) / 100;
+  calculate();
+  display = display / 100;
 }
 
+/**
+ * Функция вычисления
+ */
+
 function calculate() {
-  const computedResult = display.split(" ").join("");
-  display = eval(computedResult);
+  display = display.replace(/÷/g, "/");
+  display = display.replace(/x/g, "*");
+  display = eval(display);
+  if (display === Infinity) {
+    alert("На ноль делить нельзя!");
+    display = "";
+  }
 }
