@@ -29,5 +29,9 @@
 
 .button_bg-blue {
   background-color: var(--blue-bg);
-  color: var(--white-bg);
+  color: var(--operator-color);
+}
+
+.button__icon path {
+  fill: var(--svg-color);
 }
