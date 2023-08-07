@@ -10,7 +10,6 @@ keybord.addEventListener("click", buttonClick);
 /**
  * Обрабатывает событие по нажатию кнопки
  */
-
 function buttonClick(e) {
   let action = e.target.dataset.action;
 
@@ -100,12 +99,14 @@ function buttonClick(e) {
   }
   showDisplay();
 }
+
 /**
  * Отобразить данные на дисплей
  */
 function showDisplay() {
   displayState.innerText = display;
-  if (display.length >= 10) {
+
+  if (display.length >= 10 && window.screen.width > 500) {
     displayState.style.fontSize = "3.7rem";
   }
 }
@@ -113,7 +114,6 @@ function showDisplay() {
 /**
  * Очистить весь дисплей
  */
-
 function clearAll() {
   display = "";
 }
@@ -121,7 +121,6 @@ function clearAll() {
 /**
  * Удалить последний элемент на дисплее
  */
-
 function deleteElement() {
   display = display.substring(0, display.length - 1);
 }
@@ -129,10 +128,10 @@ function deleteElement() {
 /**
  * Проверка является ли значение оператором
  */
-
 function isOperator(value) {
   return value === "-" || value === "+" || value === "÷" || value === "x";
 }
+
 /**
  * Добавить оператор на дисплей
  */
@@ -151,6 +150,7 @@ function addOperator(value) {
   if (isLastElementOperator) {
     const newdisplayState = display.slice(0, -1) + "";
     display = newdisplayState + " " + value;
+
     return;
   } else {
     display = display + " " + value;
@@ -163,9 +163,18 @@ function addOperator(value) {
 function addNumber(value) {
   const lastElement = display[display.length - 1];
   const isLastElementOperator = isOperator(lastElement);
+  const displaySplited = display.split(" ");
+  const lastNumber = displaySplited.pop();
+
+  if (lastNumber.length >= 15) {
+    alert("Нельзя вводить более 15 цифр!");
+
+    return;
+  }
 
   if (display === "0") {
     display = value + "";
+
     return;
   }
 
@@ -175,6 +184,7 @@ function addNumber(value) {
     display = display + value;
   }
 }
+
 /**
  * Добавить точку на дисплей
  */
@@ -184,7 +194,7 @@ function addDot() {
   const displaySplited = display.split(" ");
   const lastNumber = displaySplited.pop();
   const isDotExists = lastNumber.includes(".");
-  console.log(isDotExists);
+
   if (isDotExists) {
     return;
   }
@@ -198,10 +208,8 @@ function addDot() {
 /**
  *  Смена знака оператора на дисплее
  */
-
 function addPlusMinus() {
   const displaySplited = display.split(" ");
-
   const lastNumber = displaySplited.pop();
 
   if (display === "") {
@@ -213,15 +221,17 @@ function addPlusMinus() {
   }
 
   const changedLastNumber = "-(" + lastNumber + ")";
+
   displaySplited.push(changedLastNumber);
+
   const displayJoin = displaySplited.join(" ");
+
   display = displayJoin;
 }
 
 /**
  * Добавить проценты на дисплей
  */
-
 function addPercent() {
   calculate();
   display = display / 100;
@@ -230,11 +240,11 @@ function addPercent() {
 /**
  * Функция вычисления
  */
-
 function calculate() {
   display = display.replace(/÷/g, "/");
   display = display.replace(/x/g, "*");
   display = eval(display);
+
   if (display === Infinity) {
     alert("На ноль делить нельзя!");
     display = "";
